@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+   <head>
+   <meta charset="UTF-8">
+      <title>Form</title>
+      <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+   
+      <!--
+         Form with HTML5 tags and basic CSS
+      -->
+      <style type="text/css">
+      body{
+         font-family: 'Roboto', sans-serif;
+      }
+         #container{
+            width: 600px;
+            margin: auto;
+         }
+
+         legend{
+            font-size: 30px;
+            background-color: #fff;
+            border-radius: 5px;
+            border: 1px solid #999;
+            padding: 4px 15px;
+         }
+            
+         label.field{
+            display: block;
+            text-align: right;
+            width: 150px; /*increased to 150px to allow for "credit card number" without impact on formatting (was pushing following field onto next row)*/
+            float: left;
+         }
+         input{
+            width: 250px;
+            border-radius: 5px;
+            padding: 6px 8px; /*.field should match - note that field is a named class*/
+            margin: 10px 0; /*.field should match*/
+         }
+         .field{
+            padding: 6px 8px;
+            margin: 10px 0;
+         }
+         .menu{
+            padding: 3px;
+            margin:5px;
+         }
+         #submitButton{
+            border-color: red;
+            position: relative;
+            margin: 0;
+            left: 180px;
+         }
+
+         #currency{
+             width: 220px;
+             border-radius: 5px;
+             padding: 6px 8px;
+         }
+
+         fieldset{
+            width: 450px;
+            border: 1px solid #999;
+            border-radius: 20px;
+            clear: both;
+            padding: 20px;
+            margin-bottom: 100px;
+            background-color:rgba(129, 187, 201,.2);
+         }
+         /*#zodiac{
+            position: relative;
+            left: 150px;
+         }*/
+
+
+      </style>
+   </head>
+   <body>
+      <div id="container">
+         <form>
+            <fieldset>
+               <legend>Registration</legend>
+                  <label for="fname" class="field">Username:</label>  
+                  <input type="text" id="fname" placeholder="required field" required="" name="fname"/> <!-- required field -->
+
+                  <label for="password" class ="field">Password:</label>
+                  <input id="password" name="password" placeholder="enter password" type="password"/>
+
+                  <label for="email" class ="field">Email:</label>
+                  <input id="email" name="email"  autofocus placeholder="enter email" required="" type="email"/> <!-- focus is placed on this field when page is opened -->
+
+                  <label for="telephone" class ="field">Telephone:</label>
+                  <input id="telephone" name="telephone" placeholder="digits only" pattern="[0-9]{11}" type="tel" /> <!-- pattern used to validate input -->
+
+                  <label for="website" class ="field">Website:</label>
+                  <input id="website" name="website" placeholder="enter full url" type="url" />
+
+                  <label for="passport" class="field">Passport No:</label>
+                  <input id="passport" Name="passport" Placeholder="enter passport number" pattern="[0-9]{7}[A-Za-z]{1}" title="Please enter in the following format e.g 1234567A" type="text"/> <!-- pattern used to validate input, title used for error message if incorrect input -->
+
+                  <label for="postcode" class="field">Postcode:</label>
+                  <input id="postcode" name="postcode" placeholder="Enter postcode" pattern="[A-Z a-z]{2}[0-9]{3}[A-Z a-z]{2}" title="e.g AB123CD" type="text"/>
+
+                  <label for="card" class="field">Credit Card Number:</label>
+                  <input id="card" name="card" placeholder="Enter credit card number" pattern="[0-9]{16}" title="enter number from front of card" type="text"/>
+
+                  <label for="age" class="field">Age:</label>
+                  <input id="age" name="age" placeholder="enter your age" type="number" min="0" max="100"/>
+
+                  <label for="date" class="field">Date:</label>
+                  <input id="date" name="date" type="date"> <!-- DOESN'T WORK IN FIREFOX + HOW TO FORMAT APPEARANCE? -->
+
+                  <!-- CHECKBOXES -->
+                  <!--1. SHOULD THESE HAVE ID AND NAME? -->
+                  <!--2. CAN POSITION ETC OF CHECKBOX AND LABELS BE MANIPULATED? -->
+                  <label for="food" class="field">Menu Choice:</label>
+                  <input type="checkbox" value="Starter"/>Starter
+                  <input type="checkbox" value="Main"/>Main
+                  <input type="checkbox" value="Dessert"/>Dessert
+
+                  <!-- RADIOBUTTONS -->
+                  <!--3. CAN POSITION AND FORMAT OF RADIO BUTTONS BE CHANGED? -->
+                  <label for="gender" class="field">Gender:</label>
+                  <input type="radio" name="gender" value="male"/>Male
+                  <input type="radio" name="gender" value="female"/>Female
+                  <input type="radio" name="gender" value="other"/>Other
+
+                  <!-- SELECT BOX WITH OPTION GROUPS -->
+                  <!--4. IS THERE A WAY TO REPOSITION SELECT BOX? -->
+                  <label for="country" class="field">Country:</label>
+                  <select id="country">
+                     <optgroup label="UK">
+                        <option value="England">England</option>
+                        <option value="Scotland">Scotland</option>
+                        <option value="Wales">Wales</option>
+                     </optgroup>
+
+                     <optgroup label="Rest of World">
+                        <option value="France">France</option>
+                        <option value="Germany">Germany</option>                        
+                        <option value="Italy">Italy</option>
+                     </optgroup>
+
+                  <!-- DATALIST (LIST WITH PREPOPULATED INFO) -->
+                  <!--5. I'M NOT SURE WHY THE LABEL FOR THIS FIELD ISN'T SHOWING UP ON THE BROWSER? -->
+                  <label for="musicGenres" class="field">Music Genres:</label>
+                  <input list="musicGenres" name="musicGenres">
+                     <datalist id="musicGenres">
+                        <option value="Rock">
+                        <option value="Pop">
+                        <option value="R&B">
+                        <option value="Hip-Hop">
+                        <option value="Jazz">
+                     </datalist>
+
+                  <!-- RANGE -->
+                  <!--6. IS THERE A WAY OF HAVING THE RANGE 'FEEDBACK' THE VALUE SELECTED BY THE USER? -->
+                  <label for="range" class="field">Range:</label>
+                  <input id="range" type="range" name="range" min="0" max="11">
+
+                  <!-- <label for="submit" class="field">Submit</label> LABEL IS ON BUTTON SO NOT REQUIRED -->
+                  <input type="submit" value="submit" id="submitButton"/>
+               </fieldset>      
+            </form>
+         </div>
+   </body>
+
+</html>
