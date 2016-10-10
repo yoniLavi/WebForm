@@ -26,18 +26,24 @@
          }
             
          label.field{
-            display: block;
+            clear: left;
             text-align: right;
-            width: 100px; /*increased to 150px to allow for "credit card number" without impact on formatting (was pushing following field onto next row)*/
+            width: 30%;
             float: left;
          }
+         label.fieldset-title{
+            display: block;
+            width: 100%;
+         }
          input{
-            width: 200px;
+            display: inline;
+            width: 60%;
             border-radius: 5px;
             padding: 6px 8px; /*.field should match - note that field is a named class*/
             margin: 10px 0; 
          }
          .field{
+            width: 60%;
             padding: 6px 8px;
             margin: 10px 0;
          }
@@ -71,7 +77,7 @@
             background-color:rgba(129, 187, 201,.2);
          }
          .boxGroups {
-            position: relative;
+            display: block;
             left: -20px;
             width: 400px;
             border: none;
@@ -84,11 +90,6 @@
             position: relative;
             left: -25px;
             top: 10px;
-         }
-         .boxGroups span {
-            position: relative;
-            left: -75px;
-            top: 10px
          }
 
       </style>
@@ -130,24 +131,24 @@
 
                   <!-- CHECKBOXES -->
                   <fieldset class="boxGroups">
-                  <label class="field">Menu Choice:</label>
-                  <label for="Starter"> </label>
-                  <input type="checkbox" value="Starter" id="Starter" class="boxes"><span>Starter</span>
-                  <label for="Main"> </label>
-                  <input type="checkbox" value="Main" id="Main" class="boxes"><span>Main</span>
-                  <label for="Dessert"> </label>
-                  <input type="checkbox" value="Dessert" id="Dessert" class="boxes"><span>Dessert</span>
+                     <label class="fieldset-title">Menu Choice:</label>
+                     <label for="Starter" class="field">Starter</label>
+                     <input type="checkbox" value="Starter" id="Starter" class="boxes">
+                     <label for="Main" class="field">Main</label>
+                     <input type="checkbox" value="Main" id="Main" class="boxes">
+                     <label for="Dessert" class="field">Dessert</label>
+                     <input type="checkbox" value="Dessert" id="Dessert" class="boxes">
                   </fieldset>
 
                   <!-- RADIOBUTTONS -->
                   <fieldset class="boxGroups">
-                  <label class="field">Gender:</label>
-                  <label for="male"> </label>
-                  <input type="radio" name="gender" value="male" class="boxes" id="male"><span>Male</span>
-                  <label for="female"> </label>
-                  <input type="radio" name="gender" value="female" class="boxes" id="female"><span>Female</span>
-                  <label for="other"> </label>
-                  <input type="radio" name="gender" value="other" class="boxes" id="other"><span>Other</span>
+                     <label class="fieldset-title">Gender:</label>
+                     <label for="male" class="field">Male</label>
+                     <input type="radio" name="gender" value="male" class="boxes" id="male">
+                     <label for="female" class="field">Female</label>
+                     <input type="radio" name="gender" value="female" class="boxes" id="female">
+                     <label for="other" class="field">Other</label>
+                     <input type="radio" name="gender" value="other" class="boxes" id="other">
                   </fieldset>
 
                   <!-- SELECT BOX WITH OPTION GROUPS -->
@@ -167,15 +168,17 @@
                   </select>
 
                   <!-- DATALIST (LIST WITH PREPOPULATED INFO)  -->
-                  <label class="field">Music Genre:</label>
-                  <input list="musicGenres" name="musicGenres" placeholder="enter music genre">
+                  <fieldset>
+                     <label class="fieldset-title">Music Genre:</label>
+                     <input list="musicGenres" name="musicGenres" placeholder="enter music genre">
                      <datalist id="musicGenres">
-                        <option value="Rock">
-                        <option value="Pop">
-                        <option value="R&B">
-                        <option value="Hip-Hop">
-                        <option value="Jazz">
+                        <option value="Rock">Rock</option>
+                        <option value="Pop">Pop</option>
+                        <option value="R&B">R&amp;B</option>
+                        <option value="Hip-Hop">Hip-Hop</option>
+                        <option value="Jazz">Jazz</option>
                      </datalist>
+                  </fieldset>
 
 
                   <!-- RANGE -->
