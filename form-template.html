@@ -28,11 +28,11 @@
          label.field{
             display: block;
             text-align: right;
-            width: 150px; /*increased to 150px to allow for "credit card number" without impact on formatting (was pushing following field onto next row)*/
+            width: 100px; /*increased to 150px to allow for "credit card number" without impact on formatting (was pushing following field onto next row)*/
             float: left;
          }
          input{
-            width: 250px;
+            width: 200px;
             border-radius: 5px;
             padding: 6px 8px; /*.field should match - note that field is a named class*/
             margin: 10px 0; 
@@ -41,25 +41,28 @@
             padding: 6px 8px;
             margin: 10px 0;
          }
+         
          .menu{
             padding: 3px;
             margin:5px;
          }
          #submitButton{
             border-color: red;
-            position: relative;
-            margin: 0;
-            left: 180px;
+            display: block;
+            margin-right: auto;
+            margin-left: auto;
+            width: 50%;
          }
 
-         #currency{
+         #country{
              width: 220px;
              border-radius: 5px;
              padding: 6px 8px;
+             margin: 10px 10px 10px 0;
          }
 
          fieldset{
-            width: 450px;
+            width: 400px;
             border: 1px solid #999;
             border-radius: 20px;
             clear: both;
@@ -67,11 +70,26 @@
             margin-bottom: 100px;
             background-color:rgba(129, 187, 201,.2);
          }
-         /*#zodiac{
+         .boxGroups {
             position: relative;
-            left: 150px;
-         }*/
-
+            left: -20px;
+            width: 400px;
+            border: none;
+            background-color:rgba(0,0,0,0);
+            margin: auto;
+            padding-top: 0;
+            padding-bottom: 5px;
+         }
+         .boxes{
+            position: relative;
+            left: -25px;
+            top: 10px;
+         }
+         .boxGroups span {
+            position: relative;
+            left: -75px;
+            top: 10px
+         }
 
       </style>
    </head>
@@ -101,7 +119,7 @@
                   <label for="postcode" class="field">Postcode:</label>
                   <input id="postcode" name="postcode" placeholder="Enter postcode" pattern="[A-Z a-z]{2}[0-9]{3}[A-Z a-z]{2}" title="e.g AB123CD" type="text">
 
-                  <label for="card" class="field">Credit Card Number:</label>
+                  <label for="card" class="field">Credit Card:</label>
                   <input id="card" name="card" placeholder="Enter credit card number" pattern="[0-9]{16}" title="enter number from front of card" type="text">
 
                   <label for="age" class="field">Age:</label>
@@ -111,22 +129,28 @@
                   <input id="date" name="date" type="date"> <!-- DOESN'T WORK IN FIREFOX + HOW TO FORMAT APPEARANCE? -->
 
                   <!-- CHECKBOXES -->
-                  <!--1. SHOULD THESE HAVE ID AND NAME? -->
-                  <!--2. CAN POSITION ETC OF CHECKBOX AND LABELS BE MANIPULATED? -->
-                  <label for="food" class="field">Menu Choice:</label>
-                  <input type="checkbox" value="Starter">Starter
-                  <input type="checkbox" value="Main">Main
-                  <input type="checkbox" value="Dessert">Dessert
+                  <fieldset class="boxGroups">
+                  <label class="field">Menu Choice:</label>
+                  <label for="Starter"> </label>
+                  <input type="checkbox" value="Starter" id="Starter" class="boxes"><span>Starter</span>
+                  <label for="Main"> </label>
+                  <input type="checkbox" value="Main" id="Main" class="boxes"><span>Main</span>
+                  <label for="Dessert"> </label>
+                  <input type="checkbox" value="Dessert" id="Dessert" class="boxes"><span>Dessert</span>
+                  </fieldset>
 
                   <!-- RADIOBUTTONS -->
-                  <!--3. CAN POSITION AND FORMAT OF RADIO BUTTONS BE CHANGED? -->
-                  <label for="gender" class="field">Gender:</label>
-                  <input type="radio" name="gender" value="male">Male
-                  <input type="radio" name="gender" value="female">Female
-                  <input type="radio" name="gender" value="other">Other
+                  <fieldset class="boxGroups">
+                  <label class="field">Gender:</label>
+                  <label for="male"> </label>
+                  <input type="radio" name="gender" value="male" class="boxes" id="male"><span>Male</span>
+                  <label for="female"> </label>
+                  <input type="radio" name="gender" value="female" class="boxes" id="female"><span>Female</span>
+                  <label for="other"> </label>
+                  <input type="radio" name="gender" value="other" class="boxes" id="other"><span>Other</span>
+                  </fieldset>
 
                   <!-- SELECT BOX WITH OPTION GROUPS -->
-                  <!--4. IS THERE A WAY TO REPOSITION SELECT BOX? -->
                   <label for="country" class="field">Country:</label>
                   <select id="country">
                      <optgroup label="UK">
@@ -142,10 +166,9 @@
                      </optgroup>
                   </select>
 
-                  <!-- DATALIST (LIST WITH PREPOPULATED INFO) -->
-                  <!--5. I'M NOT SURE WHY THE LABEL FOR THIS FIELD ISN'T SHOWING UP ON THE BROWSER? -->
-                  <label for="musicGenres" class="field">Music Genre:</label>
-                  <input list="musicGenres" name="musicGenres">
+                  <!-- DATALIST (LIST WITH PREPOPULATED INFO)  -->
+                  <label class="field">Music Genre:</label>
+                  <input list="musicGenres" name="musicGenres" placeholder="enter music genre">
                      <datalist id="musicGenres">
                         <option value="Rock">
                         <option value="Pop">
